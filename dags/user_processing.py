@@ -72,5 +72,5 @@ with DAG('user_processing', start_date=datetime(2022, 1, 1),
 
     store_user = PythonOperator(
         task_id='store_user',
-        python_callable=_store_user()
+        python_callable=_store_user
     )
