@@ -19,8 +19,7 @@ def _process_user(ti):
         'country': user['location']['country'],
         'username': user['login']['username'],
         'password': user['login']['password'],
-        'email': user['emai']
-    })
+        'email': user['email']})
     processed_user.to_csv('/tmp/processed_user.csv', index=None, header=False)
 
 
@@ -48,8 +47,8 @@ with DAG('user_processing', start_date=datetime(2022, 1, 1),
         endpoint='api/'
     )
 
-    extrack_user = SimpleHttpOperator(
-        task_id='extrack_user',
+    extract_user = SimpleHttpOperator(
+        task_id='extract_user',
         http_conn_id='user_api',
         endpoint='api/',
         method='GET',
